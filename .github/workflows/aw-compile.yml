@@ -16,5 +16,5 @@ jobs:
       - uses: 7474/gh-aw-compile-action@ba88ab815b4c7de6e33d2bf3a77124ee37a3cb4c # v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: git diff
+      - run: git add -N . && git diff
 
