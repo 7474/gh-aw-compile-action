@@ -10,9 +10,6 @@ GitHub Agentic Workflows の `.md` ファイルに変更があった際に `gh a
 name: Compile Agentic Workflows
 
 on:
-  push:
-    paths:
-      - '**/*.md'
   pull_request:
     paths:
       - '**/*.md'
@@ -23,7 +20,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: 7474/gh-aw-compile-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
