@@ -5,6 +5,10 @@ inputs:
     description: 'GitHub token used by the gh CLI'
     required: false
     default: ${{ github.token }}
+  version:
+    description: 'Version of the gh-aw extension to install (e.g. v1.2.3). Installs the latest version if not specified.'
+    required: false
+    default: ''
 runs:
   using: 'composite'
   steps:
@@ -12,7 +16,8 @@ runs:
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.token }}
-      run: gh extension install github/gh-aw
+        GH_AW_VERSION: ${{ inputs.version }}
+      run: gh extension install github/gh-aw${GH_AW_VERSION:+ --pin "$GH_AW_VERSION"}
     - name: Compile Agentic Workflows
       shell: bash
       env:
