@@ -1,0 +1,20 @@
+name: 'gh aw compile'
+description: 'Install gh aw extension and compile GitHub Agentic Workflows'
+inputs:
+  token:
+    description: 'GitHub token used by the gh CLI'
+    required: false
+    default: ${{ github.token }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Install gh aw extension
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+      run: gh extension install github/gh-aw
+    - name: Compile Agentic Workflows
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+      run: gh aw compile
