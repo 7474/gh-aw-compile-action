@@ -17,7 +17,7 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.token }}
         GH_AW_VERSION: ${{ inputs.version }}
-      run: gh extension install github/gh-aw${GH_AW_VERSION:+ --pin "$GH_AW_VERSION"}
+      run: gh extension install github/gh-aw${GH_AW_VERSION:+@$GH_AW_VERSION}
     - name: Compile Agentic Workflows
       shell: bash
       env:
