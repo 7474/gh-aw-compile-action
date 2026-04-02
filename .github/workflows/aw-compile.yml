@@ -16,7 +16,7 @@ jobs:
       - uses: 7474/gh-aw-compile-action@476d72439c195213e7f6497a42fadad3e9679fc1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          version: v0.0.21
+          version: v0.64.5
       - run: git add -N . && git diff
       - uses: 7474/gh-aw-compile-action@476d72439c195213e7f6497a42fadad3e9679fc1
         with:
