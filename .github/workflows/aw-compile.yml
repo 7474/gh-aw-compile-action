@@ -3,16 +3,16 @@ name: Compile Agentic Workflows
 on:
   push:
     paths:
-      - '**.md'
+      - '**/*.md'
   pull_request:
     paths:
-      - '**.md'
+      - '**/*.md'
 
 jobs:
   compile:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: 7474/gh-aw-compile-action@v1

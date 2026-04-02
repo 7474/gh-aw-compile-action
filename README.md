@@ -12,16 +12,16 @@ name: Compile Agentic Workflows
 on:
   push:
     paths:
-      - '**.md'
+      - '**/*.md'
   pull_request:
     paths:
-      - '**.md'
+      - '**/*.md'
 
 jobs:
   compile:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: 7474/gh-aw-compile-action@v1
@@ -31,9 +31,9 @@ jobs:
 
 ## Inputs
 
-| 名前    | 必須 | デフォルト            | 説明                        |
-|---------|------|-----------------------|-----------------------------|
-| `token` | No   | `${{ github.token }}` | `gh` CLI が使用する GitHub トークン |
+| 名前    | 必須 | デフォルト | 説明                        |
+|---------|------|------------|-----------------------------|
+| `token` | Yes  | -          | `gh` CLI が使用する GitHub トークン |
 
 ## 動作
 

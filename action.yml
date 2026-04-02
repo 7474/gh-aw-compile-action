@@ -3,7 +3,8 @@ description: 'Install gh aw extension and compile GitHub Agentic Workflows'
 inputs:
   token:
     description: 'GitHub token used by the gh CLI'
-    required: true
+    required: false
+    default: ${{ github.token }}
 runs:
   using: 'composite'
   steps:
